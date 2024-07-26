@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View for Schools -->
+    <record id="wb_schools_tree_view" model="ir.ui.view">
+        <field name="name">wb.schools.tree</field>
+        <field name="model">wb.school</field>
+        <field name="arch" type="xml">
+            <tree string="Schools">
+                <field name="name"/>
+                <field name="School_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Schools -->
+    <record id="wb_schools_form_view" model="ir.ui.view">
+        <field name="name">wb.schools.form</field>
+        <field name="model">wb.school</field>
+        <field name="arch" type="xml">
+            <form string="Schools">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="School_type"/>
+                        <field name="student_ids">
+                            <tree string="Students">
+                                <field name="name"/>
+                                <field name="roll_number"/>
+                                <field name="status"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View for Schools -->
+    <record id="view_school_filter" model="ir.ui.view">
+        <field name="name">wb.school.filter</field>
+        <field name="model">wb.school</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="Primary" string="Primary" domain="[('School_type', '=', 'primary')]"/>
+                <filter name="Secondary" string="Secondary" domain="[('School_type', '=', 'secondary')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action for Schools -->
+    <record id="wb_school_action" model="ir.actions.act_window">
+        <field name="name">Schools</field>
+        <field name="res_model">wb.school</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wb_schools_tree_view"/>
+    </record>
+
+    <!-- Menu Item for Schools -->
+    <menuitem id="school_menu" name="Schools" action="wb_school_action" parent="base.menu_management"/>
+
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wb_student_public,Access WB Student,model_wb_student,,1,0,0,0
+access_wb_school,Access WB School,model_wb_school,,1,1,1,1
+access_wb_course,Access WB Course,model_wb_course,,1,1,1,1
+access_wb_student_teacher,Access WB Student,model_wb_student,group_teacher,1,0,0,0
+access_wb_student_principal,Access WB Student,model_wb_student,group_principal,1,1,1,1

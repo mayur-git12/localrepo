@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View for Courses -->
+    <record id="wb_cource_tree_view" model="ir.ui.view">
+        <field name="name">wb.cource.tree</field>
+        <field name="model">wb.course</field>
+        <field name="arch" type="xml">
+            <tree string="Courses">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Courses -->
+    <record id="wb_cource_form_view" model="ir.ui.view">
+        <field name="name">wb.course.form</field>
+        <field name="model">wb.course</field>
+        <field name="arch" type="xml">
+            <form string="Courses">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="student_ids">
+                            <tree string="Students">
+                                <field name="roll_number"/>
+                                <!-- Add other fields related to students if needed -->
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Courses -->
+    <record id="wb_cource_action" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">wb.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wb_cource_tree_view"/>
+    </record>
+</odoo>

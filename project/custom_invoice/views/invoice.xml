@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <record id="custom_invoice.invoice_tree_inherit" model="ir.ui.view">
+        <field name="name">invoice Tree Inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="transcation"/>
+            </xpath>
+            <!-- <xpath expr="//field[@name='amount_total']" position="before">
+                <field name="offer"/>
+            </xpath> -->
+    </field>     
+    </record>
+
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">form inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/> 
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="transcation"/>
+            </xpath>
+        
+        </field>
+    </record>
+
+</odoo>

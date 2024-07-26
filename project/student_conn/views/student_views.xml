@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    
+    <record id="student_conn.student_tree_inherit" model="ir.ui.view">
+        <field name="name">Student Tree Inherit</field>
+        <field name="model">wb.student</field>
+        <field name="inherit_id" ref="students.wb_students_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='roll_number']" position="after">
+                <field name="newfield1"/>
+                <field name="newfield2"/>
+            </xpath>
+    </field>
+    </record>
+
+    <record id="view_student_form_inherit" model="ir.ui.view">
+        <field name="name">wb.student.form.inherit</field>
+        <field name="model">wb.student</field>
+        <field name="inherit_id" ref="students.wb_students_form_view"/> 
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='roll_number']" position="after">
+                <field name="newfield1"/>
+                <field name="newfield2"/>
+            </xpath>
+        
+        </field>
+    </record>
+</odoo>

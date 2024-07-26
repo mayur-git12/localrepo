@@ -1,0 +1,1 @@
+partner_id = fields.Many2one('res.partner', string='partner',)

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_report_action">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <br />
+                    <center>
+                    <h2>Student Form Data</h2>
+                    </center>
+                    <div class="data-box">
+                        <t t-foreach="docs" t-as="doc">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <strong>Name :</strong>
+                                    <span t-field="doc.name"/>
+                                </li>
+                                <li>
+                                    <strong>Email :</strong>
+                                    <span t-field="doc.email"/>
+                                </li>
+                                <li>
+                                    <strong>Select type:</strong>
+                                    <span t-field="doc.School_type"/>
+                                </li>
+                                <li>
+                                    <strong>Habit :</strong>
+                                    <span t-field="doc.habit"/>
+                                </li>
+                                <li>
+                                    <strong>School :</strong>
+                                    <span t-field="doc.school_id"/>
+                                </li>
+                                <li>
+                                    <strong>Enroll Date :</strong>
+                                    <span t-field="doc.enroll_date"/>
+                                </li>
+                                <li>
+                                    <strong>Roll Number:</strong>
+                                    <span t-field="doc.roll_number"/>
+                                </li>
+                            </ul>
+
+                            <table class="styled-table">
+                                <thead>
+                                    <tr>
+                                        <th>Height</th>
+                                        <th>Enrollment Date</th>
+                                        <th>Joining Datetime</th>
+                                        <th>Status</th>
+                                        <th>Courses</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span t-field="doc.height"/></td>
+                                        <td><span t-field="doc.enroll_date"/></td>
+                                        <td><span t-field="doc.join_datetime"/></td>
+                                        <td><span t-field="doc.status"/></td>
+                                        <td><span t-field="doc.course_ids"/></td>
+                                    </tr>
+                                    <style>
+                                        table {
+                                            width: 100%;
+                                            border-collapse: collapse;
+                                            margin-top: 10px;
+                                        }
+                                        table, th, td {
+                                            border: 1px solid black;
+                                                border-radius: 10px;
+                                        }
+                                        th, td {
+                                            padding: 10px;
+                                            text-align: center;
+                                        }
+                                    </style>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="styles" inherit_id="web.external_layout">
+        <xpath expr="." position="inside">
+            <style>
+                .data-box {
+                    border: 1px solid #000;
+                    padding: 10px;
+                    margin: 10px 0;
+                    border-radius: 5px;
+                }
+                .data-box ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+                .data-box ul li {
+                    
+                    margin-bottom: 5px;
+                }
+                .data-box ul li strong {
+                    display: inline-block;
+                    width: 150px;
+                }
+                
+            </style>
+        </xpath>
+    </template>
+</odoo>
